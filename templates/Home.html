@@ -1,0 +1,42 @@
+<nav style = "font-family:Calibri;font-size:16px;">
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+    </ul>
+</nav>
+<style>
+.bottomright {
+position: fixed;
+bottom: 0px;
+right: 8px;
+font-size: 18px;
+}
+</style>
+<div class="bottomright"><img src ="/static/python.jpg" alt="Python Powered."/></div>
+<h1 style = "font-family:Calibri;font-size:40px;">Welcome To the Huduk</h1>
+<h3 style = "font-family:Calibri;font-size:30px;">This is the Huduk Project.</h3>
+<form method="POST">
+    <p style = "font-family:Calibri;font-size:16px;">
+        Enter Company Name- <br>
+        <input name="company" cols="30" rows="1"></input> <!-- cols and rows represent size of text area-->
+    </p>
+    <p>
+        <button>Search</button>
+    </p>
+</form>
+<hr>
+{% if logo %}
+
+    <div style="background: #a3a3a3">
+    <p style = "font-family:Calibri;font-size:16px;">Company Name: <h3>{{ company }}</h3> </p> <br>
+    <p style = "font-family:Calibri;font-size:16px;">Company Symbol: <h3>{{ logo }}</h3> </p> <br>
+    <p style = "font-family:Calibri;font-size:16px;">Current Stock Price: <h3>${{ rate }}</h3> </p>
+    </div>
+    <br>
+    <img src="/static/{{ logo }}.jpg" alt="Stock Graph."/>
+{% endif %}
+{% if logo == None %}
+    <div style="background: #ce5d5d">
+        <p style = "font-family:Calibri;font-size:16px;">Nothing Matched the Search! </p>
+    </div>
+{% endif %}
